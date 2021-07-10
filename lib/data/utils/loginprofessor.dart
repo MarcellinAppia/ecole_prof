@@ -1,7 +1,7 @@
 class LoginProfessor{
-  String email;
-  String password;
-  String type;
+  String? email;
+  String? password;
+  String? type;
 
   LoginProfessor({ this.email, this.password, this.type});
 

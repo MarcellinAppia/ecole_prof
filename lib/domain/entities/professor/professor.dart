@@ -1,11 +1,12 @@
 import 'dart:convert';
 
+import 'package:ecole_prof/data/utils/marksforprofessor.dart';
 
 
-Professor professorFromJson(String str) => Professor.fromJson(json.decode(str));
 
-String professorToJson(Professor data) => json.encode(data.toJson());
+List<Professor> professorFromJson(String str) => List<Professor>.from(json.decode(str).map((x) => Professor.fromJson(x)));
 
+String professorToJson(List<Professor> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 class Professor {
     Professor({
          this.email,
@@ -17,20 +18,22 @@ class Professor {
          this.addresse,
          this.tel,
          this.picture,
-         this.firstconnection,
+        this.firstConnection,
+       
 
     });
 
-    String email;
-    String password;
-    String type;
-    int id;
-    String nom;
-    String prenom;
-    String addresse;
-    String tel;
-    String picture;
-    bool firstconnection;
+    String? email;
+    String? password;
+    String? type;
+    int? id;
+    String? nom;
+    String? prenom;
+    String? addresse;
+    String? tel;
+    String? picture;
+    bool? firstConnection;
+   
 
     factory Professor.fromJson(Map<String, dynamic> json) => Professor(
         email: json["email"],
@@ -42,7 +45,7 @@ class Professor {
         addresse: json["addresse"],
         tel: json["tel"],
         picture: json["picture"],
-        firstconnection: json["first_connection"],
+       firstConnection: json["first_connection"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -55,6 +58,6 @@ class Professor {
         "addresse": addresse,
         "tel": tel,
         "picture": picture,
-      "first_connection": firstconnection,
+      "first_connection": firstConnection,
     };
 }

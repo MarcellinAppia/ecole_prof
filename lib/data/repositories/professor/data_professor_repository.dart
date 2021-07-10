@@ -28,7 +28,7 @@ class DataProfessorRepository extends ProfessorRepository{
         LoginResponse lgResponse = new LoginResponse(
           user: reqResponse['user'],
           accessToken: reqResponse['accessToken']);
-        professor = Professor.fromJson(lgResponse.user);
+        professor = Professor.fromJson(lgResponse.user!);
         print(' le parent ${professor.toJson()}');
         return professor;
       }
@@ -40,8 +40,10 @@ class DataProfessorRepository extends ProfessorRepository{
         throw reqResponse;
       }
       else if(response.statusCode == 404){
-        Map<String,dynamic> reqResponse = jsonDecode(response.body);
-        throw reqResponse;
+        Map<String,dynamic>? reqResponse = jsonDecode(response.body);
+        throw reqResponse!;
+      }else{
+        throw Exception('erreur');
       }
  
    

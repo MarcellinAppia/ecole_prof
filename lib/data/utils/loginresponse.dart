@@ -1,6 +1,6 @@
 class LoginResponse {
-  Map<String,dynamic> user;
-  String accessToken;
+  Map<String,dynamic>? user;
+  String? accessToken;
 
   LoginResponse({ this.user,  this.accessToken});
 

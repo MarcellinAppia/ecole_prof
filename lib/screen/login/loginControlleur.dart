@@ -15,7 +15,7 @@ class LoginController extends GetxController {
   bool tasking = false;
   final profRep = Get.put(DataProfessorRepository());
 
- http.Response response;
+ http.Response? response;
 
  
   GetStorage enfants = GetStorage();
@@ -36,7 +36,7 @@ class LoginController extends GetxController {
 
     } catch (e) {
       print('voici l\'erreur $e');
-      if (e['statusCode'] == 403) {
+      if ((e as Map)['statusCode'] == 403) {
         uid.write('eid', int.parse(e["error"]));
         print('On imprime $e');
         Get.to(UpdatePswd());

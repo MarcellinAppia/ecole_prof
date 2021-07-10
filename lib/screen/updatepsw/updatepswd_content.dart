@@ -14,7 +14,7 @@ class UpdatePswdContent extends StatelessWidget {
   Widget build(BuildContext context) {
  final update = Get.find<UpdatePassWordController>();
      final user = GetStorage();
-     String userpsw = user.read('email');
+     String? userpsw = user.read('email');
 
 
     return SingleChildScrollView(

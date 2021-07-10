@@ -11,16 +11,16 @@ class UpdateResponse {
      this.firstConnexion,
   });
 
-  String password;
-  bool firstConnexion;
+  String? password;
+  bool? firstConnexion;
 
   factory UpdateResponse.fromJson(Map<String, dynamic> json) => UpdateResponse(
         password: json["password"],
-        firstConnexion: json["first_connexion"] ,
+        firstConnexion: json["first_connection"] ,
       );
 
   Map<String, dynamic> toJson() => {
         "password": password,
-        "first_connexion": firstConnexion,
+        "first_connection": firstConnexion,
       };
 }
